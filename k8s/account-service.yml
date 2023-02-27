@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: account-service
+  namespace: cenoa
+spec:
+  serviceName: account-service
+  replicas: 3
+  selector:
+    matchLabels:
+      app: account-service
+  template:
+    metadata:
+      labels:
+        app: account-service
+    spec:
+      nodeSelector:
+        role: account-service
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "app"
+                    operator: In
+                    values:
+                      - account-service
+              topologyKey: "kubernetes.io/hostname"
+      securityContext:
+        runAsUser: 799
+        runAsNonRoot: true
+        fsGroup: 799
+      volumes:
+        - name: account-service-config
+          configMap:
+            name: account-service-config
+            items:
+              - key: logback
+                path:  logback.xml
+        - name: account-service-logs
+          emptyDir: {}
+      containers:
+        - name: server
+          imagePullPolicy: Always
+          image: cenoa/account-service:latest
+          ports:
+            - containerPort: 8001
+              name: http
+          resources:
+            limits:
+              cpu: "1000m"
+              memory: 5000Mi
+            requests:
+              cpu: "1000m"
+              memory: 2000Mi
+          env:
+            - name: someKey
+              value: "someValue"
+          envFrom:
+            - configMapRef:
+                name: kafka-config
+          volumeMounts:
+            - mountPath: /var/log/cenoa/account-service
+              name: account-service-logs
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 460
+            timeoutSeconds: 10
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: account-service
+  namespace: cenoa
+spec:
+  type: ClusterIP
+  selector:
+    app: account-service
+  ports:
+    - port: 8001
+      name: http

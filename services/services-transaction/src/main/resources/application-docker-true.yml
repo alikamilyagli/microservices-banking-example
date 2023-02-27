@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    testWhileIdle: 'true'
+    url: jdbc:postgresql://transactions_db:5434/transactions
+    username: root
+    password: root
+    validationQuery: SELECT 1
+    platform: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: POSTGRESQL
+    show-sql: 'true'
+    generate-ddl: 'true'
+    hibernate:
+      ddl-auto: 'create-drop'
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: 'true'
+        default_schema: public
+  kafka:
+    producer:
+      bootstrap-servers: kafka-1:29092
+      properties:
+        acks: all
+        retries: 5
+    admin:
+      properties:
+        bootstrap.servers: kafka-1:29092
+    template:
+      default-topic: deposit-event-topic

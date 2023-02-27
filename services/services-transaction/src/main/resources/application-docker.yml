@@ -1,0 +1,26 @@
+spring:
+  jpa:
+    database: h2
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        globally_quoted_identifiers: true
+    show-sql: false
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;
+    username: xx
+    password: xx
+  kafka:
+    producer:
+      bootstrap-servers: kafka-1:29092
+      properties:
+        acks: all
+        retries: 5
+    admin:
+      properties:
+        bootstrap.servers: kafka-1:29092
+    template:
+      default-topic: deposit-event-topic

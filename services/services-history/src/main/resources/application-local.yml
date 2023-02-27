@@ -1,0 +1,16 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      username: historydbuser
+      password: historydbpw
+      database: historydb
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:29092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      group-id: account-events-listener-history-group
+    template:
+      default-topic: account-event-topic

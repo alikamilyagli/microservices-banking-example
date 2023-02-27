@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    testWhileIdle: 'true'
+    url: jdbc:postgresql://accounts_db:5433/accounts
+    username: root
+    password: root
+    validationQuery: SELECT 1
+    platform: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: POSTGRESQL
+    show-sql: 'true'
+    generate-ddl: 'true'
+    hibernate:
+      ddl-auto: 'create-drop'
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: 'true'
+        default_schema: public
+  kafka:
+    producer:
+      bootstrap-servers: kafka-1:29092
+      properties:
+        acks: all
+        retries: 5
+    consumer:
+      bootstrap-servers: kafka-1:29092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      group-id: account-events-listener-account-group
+    admin:
+      properties:
+        bootstrap.servers: kafka-1:29092

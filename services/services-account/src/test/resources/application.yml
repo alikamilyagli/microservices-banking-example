@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: test
+  jpa:
+    database: h2
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        globally_quoted_identifiers: true
+    show-sql: false
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;
+    username: xx
+    password: xx
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
+      group-id: cenoa-test-group

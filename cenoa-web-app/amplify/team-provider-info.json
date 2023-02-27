@@ -1,0 +1,30 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cenoawebapp-dev-224044-authRole",
+      "UnauthRoleArn": "arn:aws:iam::191319226098:role/amplify-cenoawebapp-dev-224044-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::191319226098:role/amplify-cenoawebapp-dev-224044-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-cenoawebapp-dev-224044-deployment",
+      "UnauthRoleName": "amplify-cenoawebapp-dev-224044-unauthRole",
+      "StackName": "amplify-cenoawebapp-dev-224044",
+      "StackId": "arn:aws:cloudformation:eu-central-1:191319226098:stack/amplify-cenoawebapp-dev-224044/f7b6a980-b3b1-11ed-9968-024d9b84ae28",
+      "AmplifyAppId": "d1vgal184ultpq",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-cenoawebapp-dev-224044-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "cenoa": {}
+      },
+      "function": {
+        "cenoaCustomMessage": {
+          "REDIRECTURL": "http://localhost:3000/",
+          "EMAILSUBJECT": "confirm your cenoa account",
+          "EMAILMESSAGE": "welcome to cenoa",
+          "deploymentBucketName": "amplify-cenoawebapp-dev-224044-deployment",
+          "s3Key": "amplify-builds/cenoaCustomMessage-574966382f765a346e4c-build.zip"
+        }
+      }
+    }
+  }
+}

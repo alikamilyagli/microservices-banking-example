@@ -1,0 +1,30 @@
+server:
+  port: 8002
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: https://cognito-idp.eu-central-1.amazonaws.com/eu-central-1_RrecQzI5R/.well-known/jwks.json
+  profiles:
+    active: local
+  jackson:
+    time-zone: UTC
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: 'false'
+
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: 'true'
+    path: /swagger-ui.html
+    enabled: true
+    operationsSorter: method
+    tryItOutEnabled: true
+    filter: true
+    tagsSorter: alpha
+  packages-to-scan: com.cenoa.transaction.api.controller
+  api-docs:
+    enabled: true
+    path: '/api-docs'
+

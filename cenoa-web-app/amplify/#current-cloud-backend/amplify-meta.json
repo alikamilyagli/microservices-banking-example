@@ -1,0 +1,99 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cenoawebapp-dev-224044-authRole",
+      "UnauthRoleArn": "arn:aws:iam::191319226098:role/amplify-cenoawebapp-dev-224044-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::191319226098:role/amplify-cenoawebapp-dev-224044-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-cenoawebapp-dev-224044-deployment",
+      "UnauthRoleName": "amplify-cenoawebapp-dev-224044-unauthRole",
+      "StackName": "amplify-cenoawebapp-dev-224044",
+      "StackId": "arn:aws:cloudformation:eu-central-1:191319226098:stack/amplify-cenoawebapp-dev-224044/f7b6a980-b3b1-11ed-9968-024d9b84ae28",
+      "AmplifyAppId": "d1vgal184ultpq",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-cenoawebapp-dev-224044-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    }
+  },
+  "auth": {
+    "cenoa": {
+      "customAuth": false,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "cenoaCustomMessage",
+          "triggerProvider": "Cognito"
+        }
+      ],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-cenoawebapp-dev-224044-deployment/amplify-cfn-templates/auth/cenoa-cloudformation-template.json",
+        "logicalId": "authcenoa"
+      },
+      "lastPushTimeStamp": "2023-02-23T19:52:10.711Z",
+      "output": {
+        "UserPoolId": "eu-central-1_RrecQzI5R",
+        "AppClientIDWeb": "2219iroq6oudp72gqapqisum0f",
+        "AppClientID": "6mcavoen85bema30n1c05soul7",
+        "HostedUIDomain": "cenoawebapp574e8658-574e8658-dev",
+        "IdentityPoolId": "eu-central-1:6b39c516-5ed2-4f5a-a92b-dd7107500d96",
+        "UserPoolArn": "arn:aws:cognito-idp:eu-central-1:191319226098:userpool/eu-central-1_RrecQzI5R",
+        "IdentityPoolName": "cenoawebapp574e8658_identitypool_574e8658__dev",
+        "OAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\"],\"LogoutURLs\":[\"http://localhost:3000/\"]}",
+        "UserPoolName": "cenoawebapp574e8658_userpool_574e8658"
+      },
+      "lastPushDirHash": "+/HbfYj6+xIb2dNEkNFpAUKgES0="
+    }
+  },
+  "function": {
+    "cenoaCustomMessage": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2023-02-23T19:46:00.657Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2023-02-23T19:46:00.689Z",
+      "distZipFilename": "cenoaCustomMessage-574966382f765a346e4c-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-cenoawebapp-dev-224044-deployment",
+        "s3Key": "amplify-builds/cenoaCustomMessage-574966382f765a346e4c-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-cenoawebapp-dev-224044-deployment/amplify-cfn-templates/function/cenoaCustomMessage-cloudformation-template.json",
+        "logicalId": "functioncenoaCustomMessage"
+      },
+      "lastPushTimeStamp": "2023-02-23T19:52:10.711Z",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::191319226098:role/cenoaCustomMessage-dev",
+        "Region": "eu-central-1",
+        "Arn": "arn:aws:lambda:eu-central-1:191319226098:function:cenoaCustomMessage-dev",
+        "Name": "cenoaCustomMessage-dev",
+        "LambdaExecutionRole": "cenoaCustomMessage-dev"
+      },
+      "lastPushDirHash": "OR0V0mBOXAKTIyp/4TTcaZcizAw="
+    }
+  }
+}

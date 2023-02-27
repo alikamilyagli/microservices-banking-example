@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    testWhileIdle: 'true'
+    password: ${POSTGRES_PASSWORD:root}
+    url: jdbc:postgresql://${DB_HOST:127.0.0.1}:${DB_PORT:5433}/${DB_NAME:account}
+    validationQuery: SELECT 1
+    platform: postgres
+    driver-class-name: org.postgresql.Driver
+    username: ${POSTGRES_USER:root}
+  jpa:
+    database: POSTGRESQL
+    show-sql: 'true'
+    generate-ddl: 'true'
+    hibernate:
+      ddl-auto: 'create-drop'
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: 'true'
+        default_schema: public

@@ -1,0 +1,336 @@
+{
+	"info": {
+		"_postman_id": "72b0771d-1833-431e-ba41-38ab2682e260",
+		"name": "Cenoa Bank API Examples",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25969369"
+	},
+	"item": [
+		{
+			"name": "History Service",
+			"item": [
+				{
+					"name": "health check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{history-service}}/health",
+							"host": [
+								"{{history-service}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all history",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{history-service}}/v1/history",
+							"host": [
+								"{{history-service}}"
+							],
+							"path": [
+								"v1",
+								"history"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transaction Service",
+			"item": [
+				{
+					"name": "health check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{transaction-service}}/health",
+							"host": [
+								"{{transaction-service}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{transaction-service}}/v1/transactions",
+							"host": [
+								"{{transaction-service}}"
+							],
+							"path": [
+								"v1",
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deposit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accountUuid\": \"cff65484-eb58-4d95-8c74-58c4087afe9f\",\n    \"amount\": 100.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{transaction-service}}/v1/transaction/deposit",
+							"host": [
+								"{{transaction-service}}"
+							],
+							"path": [
+								"v1",
+								"transaction",
+								"deposit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "withdraw",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accountUuid\": \"cff65484-eb58-4d95-8c74-58c4087afe9f\",\n    \"amount\": 20.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{transaction-service}}/v1/transaction/withdraw",
+							"host": [
+								"{{transaction-service}}"
+							],
+							"path": [
+								"v1",
+								"transaction",
+								"withdraw"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account Service",
+			"item": [
+				{
+					"name": "health check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{account-service}}/health",
+							"host": [
+								"{{account-service}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list static enums",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{account-service}}/v1/enum",
+							"host": [
+								"{{account-service}}"
+							],
+							"path": [
+								"v1",
+								"enum"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list accounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{account-service}}/v1/account",
+							"host": [
+								"{{account-service}}"
+							],
+							"path": [
+								"v1",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get account details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{account-service}}/v1/account/79e38193-28af-4a85-83c7-df5c0d16c7be",
+							"host": [
+								"{{account-service}}"
+							],
+							"path": [
+								"v1",
+								"account",
+								"79e38193-28af-4a85-83c7-df5c0d16c7be"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"currency\": \"USD\",\n    \"description\": \"my first account\",\n    \"status\": \"ACTIVE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{account-service}}/v1/account",
+							"host": [
+								"{{account-service}}"
+							],
+							"path": [
+								"v1",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update account",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"my first account 3\",\n    \"status\": \"ACTIVE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{account-service}}/v1/account/289f9b84-b58e-4062-87cf-dfd4cf368e5f",
+							"host": [
+								"{{account-service}}"
+							],
+							"path": [
+								"v1",
+								"account",
+								"289f9b84-b58e-4062-87cf-dfd4cf368e5f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"my first account 3\",\n    \"status\": \"ACTIVE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{account-service}}/v1/account/289f9b84-b58e-4062-87cf-dfd4cf368e5f",
+							"host": [
+								"{{account-service}}"
+							],
+							"path": [
+								"v1",
+								"account",
+								"289f9b84-b58e-4062-87cf-dfd4cf368e5f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
